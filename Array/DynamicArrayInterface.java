@@ -1,4 +1,4 @@
-package DynamicArray;
+package Array;
 
 /*
  * An interface for a dynamic array data structure.
@@ -145,6 +145,11 @@ public interface DynamicArrayInterface<T extends Comparable<T>> {
    * Sorts the elements in the array in ascending order using selection sort.
    */
   void selectionSort();
+
+  /*
+   * Reverses the order of the elements in the array.
+   */
+  void reverse();
 
   /*
    * Returns an array representation of the elements in the array.

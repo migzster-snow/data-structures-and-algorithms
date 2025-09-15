@@ -1,9 +1,10 @@
-package DynamicArray;
+package Array;
 
 /*
  * A dynamic array implementation.
  */
-public class DynamicArray<T extends Comparable<T>> implements DynamicArrayInterface<T> {
+public class DynamicArray<T extends Comparable<T>> 
+implements DynamicArrayInterface<T> {
 
   // Instance variables
 
@@ -22,6 +23,9 @@ public class DynamicArray<T extends Comparable<T>> implements DynamicArrayInterf
    */
   private T[] data;
 
+  /*
+   * The initial capacity of the array.
+   */
   private static final int INITIAL_CAPACITY = 32;
 
   // Constructor
@@ -323,13 +327,49 @@ public class DynamicArray<T extends Comparable<T>> implements DynamicArrayInterf
    * Sorts the elements in the array in ascending order using insertion sort.
    */
   @Override
-  public void insertionSort() {}
+  public void insertionSort() {
+    for (int i = 1; i < this.size; i++) {
+      T key = this.data[i];
+      int j = i - 1;
+      while (j >= 0 && this.data[j].compareTo(key) > 0) {
+        this.data[j + 1] = this.data[j];
+        j--;
+      }
+      this.data[j + 1] = key;
+    }
+  }
 
   /*
    * Sorts the elements in the array in ascending order using selection sort.
    */
   @Override
-  public void selectionSort() {}
+  public void selectionSort() {
+    for (int i = 0; i < this.size - 1; i++) {
+      int minIndex = i;
+      for (int j = i + 1; j < this.size; j++) {
+        if (this.data[j].compareTo(this.data[minIndex]) < 0) {
+          minIndex = j;
+        }
+      }
+      if (minIndex != i) {
+        T temp = this.data[i];
+        this.data[i] = this.data[minIndex];
+        this.data[minIndex] = temp;
+      }
+    }
+  }
+
+  /*
+   * Reverses the order of the elements in the array.
+   */
+  @Override
+  public void reverse() {
+    for (int i = 0; i < this.size / 2; i++) {
+      T temp = this.data[i];
+      this.data[i] = this.data[this.size - 1 - i];
+      this.data[this.size - 1 - i] = temp;
+    }
+  }
 
   /*
    * Returns an array representation of the elements in the array.
