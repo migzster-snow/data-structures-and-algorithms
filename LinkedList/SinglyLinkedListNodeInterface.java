@@ -28,4 +28,3 @@ public interface SinglyLinkedListNodeInterface<T extends Comparable<T>> {
    */
   SinglyLinkedListNodeInterface<T> getNext();
 }
-

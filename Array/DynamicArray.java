@@ -85,7 +85,7 @@ implements DynamicArrayInterface<T> {
    * @throws IllegalArgumentException if element is null.
    */
   @Override
-  public void add(int index, T element) {
+  public void add(T element) {
     if (element == null) {
       throw new IllegalArgumentException("Element cannot be null");
     }

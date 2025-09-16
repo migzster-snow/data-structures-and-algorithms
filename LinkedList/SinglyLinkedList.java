@@ -599,4 +599,3 @@ implements LinkedListInterface<T> {
   } // End of Node class
 
 } // End of SinglyLinkedList class
-
